@@ -1,0 +1,16 @@
+body {
+    color: $color-black;
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    height: 100%;
+    line-height: 22px;
+    min-height: 100%;
+}
+
+a:hover, a:focus, a:active {
+    background-color: transparent;
+}
+
+a, a:hover {
+    color: $color-black;
+}

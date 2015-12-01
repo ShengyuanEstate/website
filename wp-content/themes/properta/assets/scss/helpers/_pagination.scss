@@ -1,0 +1,15 @@
+.navigation.pagination {
+    background-color: transparent;
+    border-top: none;
+    text-align: center;
+    width: 100%;
+
+    .page-numbers {
+        @extend .btn-primary;
+
+        &.current {
+            background-color: $color-primary;
+            color: #fff;
+        }
+    }
+}

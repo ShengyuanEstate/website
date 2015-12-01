@@ -1,0 +1,124 @@
+.agency-row {
+    border-bottom: 1px solid $gray-lighter;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    width: 100%;
+
+    &:last-of-type {
+        border-bottom: none;
+        padding-bottom: 0px;
+    }
+}
+
+.agency-row-main {
+    display: table;
+    width: 100%;
+}
+
+.agency-row-thumbnail {
+    display: table-cell;
+    vertical-align: top;
+    text-align: center;
+    width: 20%;
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.agency-row-body {
+    display: table-cell;
+    padding: 0px 30px 30px;
+    vertical-align: top;
+}
+
+.agency-row-overview {
+    display: table-cell;
+    width: 25%;
+
+    dt {
+        color: $color-secondary;
+        float: left;
+        margin-right: 15px;
+        padding-bottom: 5px;
+        text-align: center;
+        width: 16px;
+    }
+
+    dd {
+        display: table-cell;
+        padding-bottom: 5px;
+    }
+}
+
+.agency-row-title {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0px 0px 10px 0px;
+
+    a {
+        color: $color-primary;
+    }
+}
+
+.agency-row-overview-title {
+    color: $color-primary;
+    font-size: 18px;
+    margin: 0px 0px 20px 0px;
+    white-space: nowrap;
+}
+
+.agency-row-subtitle {
+    color: $color-secondary;
+    margin-bottom: 5px;
+
+    i {
+        margin-right: 5px;
+    }
+
+    .fa {
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+@media (max-width: $screen-sm-max) and (min-width: $screen-sm-min) {
+    .agency-row-thumbnail {
+        display: table-caption;
+        padding-bottom: 30px;
+        width: 100%;
+    }
+
+    .agency-row-body {
+        padding-left: 0px;
+    }
+
+    .agency-row-overview {
+        padding-top: 5px;
+        width: 45%;
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .agency-row-thumbnail {
+        display: block;
+        width: 100%;
+    }
+
+    .agency-row-body {
+        display: block;
+        text-align: center;
+        width: 100%;
+    }
+
+    .agency-row-overview {
+        display: block;
+        padding-top: 0px;
+        text-align: center;
+        width: 100%;
+
+        dl {
+            display: inline-block;
+        }
+    }
+}

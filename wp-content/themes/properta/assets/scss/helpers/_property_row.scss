@@ -1,0 +1,130 @@
+.property-row {
+    border-bottom: 1px solid $gray-lighter;
+    display: table;
+    margin-bottom: 30px;
+    padding-bottom: 30px;
+    width: 100%;
+}
+
+.property-row-image {
+    @extend .image-hover;
+    display: table-cell;
+    vertical-align: top;
+    width: 35%;
+
+    img {
+        display: block;
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.property-row-content {
+    display: table-cell;
+    padding-left: 30px;
+    vertical-align: top;
+}
+
+.property-badge {
+    @extend .badge;
+
+    background-color: $color-secondary;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    border-radius: 2px;
+    color: #fff;
+    font-size: 12px;
+    left: 15px;
+    padding: 6px 8px;
+    position: absolute;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+    top: -6px;
+    z-index: 1;
+}
+
+.property-badge-sticky {
+    @extend .badge-danger;
+    left: auto;
+    right: 15px;
+}
+
+.property-row-title {
+    color: $color-primary;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0px;
+}
+
+.property-row-location {
+    color: $gray-light;
+    font-size: 12px;
+    margin-bottom: 10px;
+    margin-top: 5px;
+
+    a {
+        color: $gray-light;
+    }
+}
+
+.property-row-meta {
+    margin-top: 20px;
+}
+
+.property-row-meta-item {
+    margin-right: 20px;
+
+    i {
+        color: $color-secondary;
+        font-size: 15px;
+        margin: 0px 4px 0px 0px;
+    }
+
+    strong {
+        @extend .label, .label-default;
+    }
+}
+
+.property-row-meta-item-price {
+    padding: 5px 0px 10px;
+
+    span {
+        display: none;
+    }
+
+    strong {
+        background-color: rgba(0,0,0,.07);
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+        color: $color-primary;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: $screen-sm-max) {
+    article.property-row {
+        display: block;
+
+        .property-row-image {
+            display: block;
+            margin-bottom: 20px;
+            overflow: hidden;
+            padding-top: 6px;
+            width: 100%;
+
+            a {
+                max-height: 300px;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .property-row-content {
+            display: block;
+            padding-left: 0px;
+        }
+
+        .property-row-meta-item {
+            margin-right: 15px;
+        }
+    }
+}

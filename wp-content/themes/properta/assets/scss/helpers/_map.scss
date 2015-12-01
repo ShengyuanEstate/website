@@ -1,0 +1,287 @@
+.map-wrapper {
+    img {
+        height: auto;
+        max-width: inherit;
+    }
+}
+
+/*******************************************************************
+ * Marker
+ *******************************************************************/
+
+.marker {
+    background-color: #fff;
+    border: 6px solid $color-primary;
+    border-radius: 50%;
+    height: 55px;
+    margin-top: -7px;
+    padding: 3px;
+    position: relative;
+    transition: all linear .15s;
+    width: 55px;
+
+    &:before {
+        background-color: rgba(0,0,0,.1);
+        border-radius: 50%;
+        color: $color-secondary;
+        content: "";
+        display: block;
+        font-family: fontawesome;
+        font-size: 26px;
+        height: 8px;
+        left: 50%;
+        position: absolute;
+        top: 57px;
+        transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        transition: all linear .15s;
+        width: 20px;
+    }
+
+    &:after {
+        border: 5px solid transparent;
+        border-top: 10px solid $color-primary;
+        border-bottom: 0px solid transparent;
+        bottom: -14px;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+    }
+}
+
+.marker img {
+    border-radius: 50%;
+    display: block;
+    height: 100%;
+    transition: all linear .15s;
+    width: 100%;
+}
+
+.marker:hover {
+    margin-top: -12px;
+
+    &:before {
+        height: 6px;
+        top: 62px;
+        width: 16px;
+    }
+}
+
+/*******************************************************************
+ * Cluster
+ *******************************************************************/
+.clusterer {
+    background-color: rgba($color-primary, .9);
+    border: 5px solid $color-primary;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 600;
+    height: 56px;
+    line-height: 52px;
+    position: relative;
+    text-align: center;
+    width: 56px;
+}
+
+/*******************************************************************
+ * Infobox
+ *******************************************************************/
+.infobox {
+    background-color: #fff;
+    box-shadow: 0px 15px 10px rgba(0,0,0,0.2);
+    display: table;
+    position: relative;
+    width: 350px;
+    z-index: 10;
+
+    &:before {
+        border: 15px solid transparent;
+        border-right-color: #fff;
+        content: "";
+        display: block;
+        left: -30px;
+        position: absolute;
+        top: 35px;
+    }
+}
+
+.infobox .close {
+    background-color: $color-gray-light;
+    color: #fff;
+    cursor: pointer;
+    height: 20px;
+    display: block;
+    font-size: 13px;
+    line-height: 20px;
+    opacity: .5;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    text-shadow: none;
+    top: 0px;
+    transition: all .15s linear;
+    width: 20px;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.infobox-scroll {
+    bottom: 4px;
+    font-size: 16px;
+    position: absolute;
+    right: 8px;
+    text-align: center;
+}
+
+.infobox-image {
+    padding: 15px;
+    border-radius: 2px 0px 0px 2px;
+    display: table-cell;
+    float: left;
+    margin: 0px;
+    overflow: hidden;
+    position: relative;
+    width: 45%;
+}
+
+.infobox-image img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    position: relative;
+    z-index: 2;
+}
+
+.infobox-content {
+    background-color: #fff;
+    display: table-cell;
+    float: left;
+    padding: 10px 20px 10px 0px;
+    position: relative;
+    width: 55%;
+    z-index: 2;
+}
+
+.infobox-content.multiple {
+    border-radius: 2px 0px 0px 2px;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+    width: 280px;
+}
+
+.infobox-content-title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 2px;
+
+    a {
+        color: $color-primary;
+    }
+}
+
+.infobox-content-body {
+    background-color: #fff;
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0px;
+    position: relative;
+    overflow: hidden;
+
+    hr {
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+
+    .view-more {
+        color: $color-primary;
+        font-size: 13px;
+        transition: all linear .12s;
+
+        &:hover {
+            color: $color-secondary;
+            text-decoration: none;
+        }
+
+        i {
+            font-size: 12px;
+            margin-left: 5px;
+        }
+    }
+}
+
+.infobox-content-body.multiple {
+    height: 102px;
+    overflow: auto;
+}
+
+.infobox-content-body-location {
+    color: #9E9E9E;
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    list-style: none;
+    margin: 0px 0px 10px 0px;
+    padding: 0px;
+    white-space: nowrap;
+    width: 144px;
+
+    a {
+        color: $gray;
+    }
+
+    .separator {
+        color: $gray;
+        margin: 0px 3px;
+    }
+}
+
+.infobox-content-body-area, .infobox-content-body-baths, .infobox-content-body-beds {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 19px;
+    margin-right: 15px;
+
+    i {
+        color: $color-secondary;
+        margin-right: 5px;
+    }
+}
+
+.infobox-content-body-value strong {
+    font-size: 10px;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.infobox-content-price {
+    background-color: $color-primary;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, .12);
+    bottom: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    left: 50%;
+    line-height: 1;
+    margin: 0px;
+    padding: 6px 7px;
+    position: absolute;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    z-index: 3;
+}
+
+.property-map-append-top .widget_properties_map {
+    margin-top: -166px;
+}
+
+.has-breadcrumb.property-map-append-top .widget_properties_map {
+    margin-top: -186px;
+}

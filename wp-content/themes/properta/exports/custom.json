@@ -1,0 +1,13 @@
+{
+  "blogname": "Properta",
+  "blogdescription": "Real Estate WordPress Theme",
+  "show_on_front": "page",
+  "permalink_structure": "/%postname%/",
+  "page_on_front": "751",
+  "page_for_posts": "373",
+  "locations": {
+    "primary": "primary",
+    "authenticated": "authenticated",
+    "anonymous": "anonymous"
+  }
+}

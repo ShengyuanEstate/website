@@ -1,0 +1,87 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Realia Property Slider\n"
+"POT-Creation-Date: 2015-06-25 16:13+0100\n"
+"PO-Revision-Date: 2015-06-25 16:13+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../libraries\n"
+
+#: ../includes/class-realia-property-slider-extend.php:27
+msgid "Image for slider"
+msgstr ""
+
+#: ../includes/class-realia-property-slider-extend.php:29
+msgid "Use large images which has at least 1920px width and 1080px height."
+msgstr ""
+
+#: ../includes/widgets/class-realia-property-slider-widget-property-slider.php:24
+msgid "Property Slider"
+msgstr ""
+
+#: ../includes/widgets/class-realia-property-slider-widget-property-slider.php:26
+msgid "Displays properties in slider"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:15
+msgid "IDs"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:24
+msgid "Property IDs, separated by commas."
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:30
+msgid "Classes"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:39
+msgid ""
+"Additional classes appended to body class and separated by , e.g. "
+"<i>transparent-header, property-slider-append-top</i>"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:45
+msgid "Container height"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:54
+msgid "Default value 500px."
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:63
+msgid "Thumbnail size"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:85
+msgid "Show arrows"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:98
+msgid "Disable dots"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:111
+msgid "Autoplay"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:118
+msgid "Autoplay timeout"
+msgstr ""
+
+#: ../templates/widgets/property-slider-admin.php:127
+msgid "Default value 2000."
+msgstr ""
+
+#: ../templates/widgets/property-slider.php:43
+msgid "View Detail"
+msgstr ""

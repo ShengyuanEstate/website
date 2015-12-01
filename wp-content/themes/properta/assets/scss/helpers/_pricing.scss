@@ -1,0 +1,102 @@
+@for $i from 1 through 6 {
+    .item-per-row-#{$i} {
+        .pricing-row {
+            margin-left: -15px;
+            margin-right: -15px;
+            overflow: hidden;
+
+            .pricing-container {
+                float: left;
+                padding-left: 15px;
+                padding-right: 15px;
+                width: 100% / $i;
+            }
+        }
+
+        @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+            .pricing-row .pricing-container {
+                width: 50%;
+            }
+        }
+
+        @media (max-width: $screen-xs-max) {
+            .pricing-row .pricing-container {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.pricing-inner {
+    background-color: rgba(0, 0, 0, .05);
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    text-align: center;
+
+    .btn {
+        margin-bottom: 30px;
+
+        &:hover:focus {
+            background-color: $color-primary;
+            color: #fff;
+        }
+
+        &:focus {
+            box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        }
+    }
+}
+
+.pricing-header {
+    background-color: rgba(0, 0, 0, .1);
+    padding: 20px 20px 15px;
+
+    .pricing-title {
+        font-weight: 700;
+        margin-bottom: 10px;
+    }
+
+    .pricing-price {
+        color: $color-primary;
+        margin-top: 10px;
+    }
+
+    .pricing-description {
+        color: darken($color-gray, 10%);
+    }
+}
+
+.pricing-items {
+    margin-bottom: 0px;
+    padding: 15px 20px 20px !important;
+
+    li {
+        border-bottom: 1px solid rgba(0, 0, 0, .1);
+        font-size: 14px;
+        line-height: 3;
+        list-style: none;
+
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.pricing-container {
+    margin-bottom: 30px;
+}
+
+.highlighted {
+    border-color: $color-primary;
+
+    .pricing-header {
+        background-color: $color-primary;
+    }
+
+    .pricing-title, .pricing-price {
+        color: #fff;
+    }
+
+    .pricing-description {
+        color: rgba(255,255,255,.6);
+    }
+}

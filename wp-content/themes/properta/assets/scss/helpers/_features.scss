@@ -1,0 +1,76 @@
+.feature-block {
+    display: table;
+    width: 100%;
+
+    .feature-icon {
+        display: table-cell;
+        padding-right: 20px;
+        vertical-align: top;
+
+        i {
+            background-color: $color-secondary;
+            border-radius: 50%;
+            color: #fff;
+            display: block;
+            font-size: 30px;
+            height: 60px;
+            padding-top: 14px;
+            text-align: center;
+            transition: all linear .15s;
+            width: 60px;
+        }
+
+        .realia-realia-logo {
+            padding-top: 15px;
+            padding-left: 2px;
+        }
+    }
+
+    .feature-body {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    .feature-title {
+        color: $color-primary;
+        margin-top: 0px;
+    }
+
+    .feature-content {
+        color: rgba(0,0,0,.5);
+    }
+
+    .feature-read-more {
+        color: $color-secondary;
+        display: inline-block;
+        margin-top: 10px;
+        transition: all linear .15s;
+
+        &:hover {
+            color: $color-primary;
+            text-decoration: none;
+        }
+
+        i {
+            color: $color-primary;
+            margin-left: 3px;
+        }
+    }
+
+    &:hover {
+        .feature-icon i {
+            background-color: $color-primary;
+            color: $color-secondary;
+        }
+    }
+}
+
+@media (max-width: $screen-xs-max) {
+    .col-sm-4 .feature-block {
+        margin-bottom: 50px;
+    }
+
+    .col-sm-4:last-of-type .feature-block {
+        margin-bottom: 0px;
+    }
+}

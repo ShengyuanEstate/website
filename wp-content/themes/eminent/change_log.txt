@@ -1,0 +1,27 @@
+Version 1.0
+i)   Theme Submitted for approval
+
+Version 1.0.1
+i)Update html tags
+
+Version 1.0.2
+i)Update Soliloquy slider option with enable or disable 
+
+Version 1.0.3
+i) Bug fixes
+
+Version 1.0.4
+i) Check string translation 
+
+Version 1.0.5
+i) Check string translation 
+ii)Create pot file
+
+Version 1.0.6
+i)Bug fixes
+
+Version 1.0.7
+i)Bug fixes
+
+Version 1.0.8
+i) Added Pro Features image

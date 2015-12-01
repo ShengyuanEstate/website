@@ -1,0 +1,106 @@
+.widget_filter_rent_sale_widget {
+    .tab-content {
+        @extend .background-primary;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        display: none;
+        padding: 30px 25px 15px;
+
+        &.active {
+            display: block;
+        }
+
+        form {
+            @extend .row;
+        }
+
+        .form-group {
+            @extend .col-sm-3;
+        }
+
+        .sidebar &, .footer & {
+            .form-group {
+                width: 100%;
+            }
+        }
+    }
+
+    .transparent-background .tab-content {
+        background-color: rgba($color-primary, .8);
+    }
+
+    button {
+        @extend .btn-secondary;
+        width: 100%;
+    }
+
+    .tabs-navigation {
+        @extend .nav;
+        @extend .nav-tabs;
+
+        border-bottom: none;
+        margin-bottom: 6px !important;
+
+        li {
+            margin-right: 4px;
+
+            a {
+                background-color: rgba(#fff,.9);
+                border: none !important;
+                border-radius: 0;
+                box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+                -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+                color: $color-primary;
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+
+                &:hover {
+                    background-color: #fff;
+                }
+            }
+
+            &.active a, &.active a:active, &.active a:focus {
+                color: #fff;
+                background-color: $color-primary;
+                border: none;
+
+                &:hover {
+                    background-color: $color-primary;
+                }
+            }
+
+            &.active a:hover {
+                color: #fff;
+            }
+        }
+    }
+
+    .transparent-background {
+        .tabs-navigation li {
+            a {
+                background-color: rgba(#fff,.8);
+            }
+
+            &.active a, &.active a:active, &.active a:focus {
+                background-color: rgba($color-primary,.8);
+            }
+        }
+    }
+
+    .map-overlay {
+        margin-top: -175px;
+        position: relative;
+    }
+}
+
+.widget_filter_widget {
+    form {
+        @extend .background-gray-light;
+    }
+}
+
+.widget_enquire_widget {
+    form {
+        @extend .background-primary;
+    }
+}

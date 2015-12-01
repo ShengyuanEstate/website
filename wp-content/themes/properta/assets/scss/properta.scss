@@ -1,0 +1,120 @@
+$icon-font-path: '../libraries/bootstrap/fonts/bootstrap/';
+
+@import '../libraries/bootstrap/stylesheets/bootstrap';
+
+@import 'helpers/colors';
+
+@import 'helpers/widgets';
+@import 'helpers/elements';
+@import 'helpers/header';
+@import 'helpers/footer';
+@import 'helpers/commons';
+@import 'helpers/comments';
+@import 'helpers/pagination';
+@import 'helpers/buttons';
+@import 'helpers/alerts';
+
+@import 'helpers/forms';
+@import 'helpers/post';
+@import 'helpers/map';
+@import 'helpers/payment';
+@import 'helpers/pricing';
+@import 'helpers/faq';
+@import 'helpers/partners';
+@import 'helpers/features';
+
+@import 'helpers/post_row';
+
+@import 'helpers/agent';
+@import 'helpers/agent_box';
+@import 'helpers/agent_small';
+
+@import 'helpers/agency';
+@import 'helpers/agency_row';
+
+@import 'helpers/property';
+@import 'helpers/property_small';
+@import 'helpers/property_row';
+@import 'helpers/property_box';
+@import 'helpers/property_sort';
+@import 'helpers/property_table';
+@import 'helpers/property_gallery';
+@import 'helpers/property_list';
+@import 'helpers/property_slider';
+@import 'helpers/property_carousel';
+@import 'helpers/property_filter';
+
+@import 'helpers/colorbox';
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+
+    &.admin-bar {
+        margin: 0px;
+        padding-top: 32px;
+
+        @media (max-width: 782px) {
+            padding-top: 46px;
+        }
+    }
+}
+
+.screen-reader-text {
+    display: none;
+}
+
+.page-header {
+    margin: 0px 0px 30px 0px;
+
+    h1, h2, h3 {
+        font-weight: 400;
+        margin-bottom: 17px;
+    }
+}
+
+.page-title {
+    font-weight: 400;
+}
+
+.content {
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.sidebar {
+    padding-bottom: 60px;
+    padding-top: 60px;
+}
+
+.page-wrapper {
+    display: table;
+    height: 100%;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.header, .main, .footer {
+    display: table-row;
+}
+
+.header, .footer {
+    height: 1px;
+}
+
+.sidebar-top {
+    margin-bottom: 0px;
+    margin-top: 60px;
+}
+
+.alerts {
+    margin-top: 60px;
+}
+
+.transactions-table {
+    @extend .table;
+}

@@ -1,0 +1,90 @@
+.agent-small {
+    @extend .clearfix;
+}
+
+.type-small .agents-container {
+    border-bottom: 1px solid $gray-lighter;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+
+    &:last-child {
+        border-bottom: 0px;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+}
+
+.agent-small-image {
+    @extend .image-small-hover;
+    float: left;
+    margin: 0px 20px 0px 0px;
+    width: 70px;
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.agent-small-email, .agent-small-phone {
+    color: $gray-light;
+    font-size: 12px;
+
+    a {
+        color: $gray-light;
+    }
+
+    &:before {
+        color: $color-secondary;
+        font-family: fontawesome;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
+.agent-small-email:before {
+    content: "\f0e0";
+    margin-right: 4px;
+}
+
+.agent-small-phone:before {
+    content: "\f095";
+    margin-left: 1px;
+    margin-right: 5px;
+}
+
+.agent-small-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px 0px 5px 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    a {
+        color: $color-primary;
+
+        &:hover {
+            color: $color-secondary;
+            text-decoration: none;
+        }
+    }
+}
+
+.footer {
+    .agents-container {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+        .agent-small-title a {
+            color: #fff;
+        }
+
+        .agent-small-email, .agent-small-phone {
+            color: rgba(255, 255, 255, 0.7);
+
+            a {
+                color: rgba(255, 255, 255, 0.7);
+            }
+        }
+    }
+}

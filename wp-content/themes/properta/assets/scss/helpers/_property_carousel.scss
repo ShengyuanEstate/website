@@ -1,0 +1,108 @@
+.widget_property_carousel_widget {
+
+    .owl-carousel {
+        //background-color: rgba(black,.1);
+        padding: 20px 60px 0px;
+
+        .owl-stage-outer {
+            padding: 10px 0px;
+        }
+    }
+
+    .owl-nav {
+        pointer-events: none;
+        width: 100%;
+    }
+
+    .owl-prev, .owl-next {
+        color: transparent;
+        font-size: 0px;
+        display: inline-block;
+        pointer-events: auto;
+
+        &:before {
+            background-color:$color-primary;
+            border-radius: 50%;
+            color: #fff;
+            display: block;
+            font-family: fontawesome;
+            font-size: 14px;
+            font-weight: bold;
+            padding: 8px 12px;
+            outline: 0px !important;
+            transition: all .15s linear;
+            text-align: center;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        &:hover:before {
+            background-color: $color-secondary;
+            color: #fff;
+        }
+    }
+
+    .owl-prev {
+        top: 40%;
+        left: 0px;
+        margin-left: 13px;
+        position: absolute;
+
+        &:before {
+            content: "\f053";
+            padding: 5px 12px 5px 10px;
+        }
+    }
+
+    .owl-next {
+        margin-right: 13px;
+        top: 40%;
+        position: absolute;
+        right: 0;
+
+        &:before {
+            content: "\f054";
+            padding: 5px 10px 5px 12px;
+        }
+    }
+
+    .owl-dots {
+        text-align: center;
+
+        .owl-dot {
+            background-color: #fff;
+            border: 1px solid rgba(black,.1);
+            border-radius: 5px;
+            box-shadow: 0px 1px 2px rgba(black,.4);
+            -webkit-box-shadow: 0px 1px 2px rgba(black,.4);
+            display: inline-block;
+            height: 11px;
+            margin: 15px 5px 0px;
+            transition: all linear .15s;
+            width: 11px;
+
+            &:hover, &.active {
+                background-color: $color-primary;
+            }
+        }
+    }
+
+    .background-gray .property-box {
+        border: none;
+    }
+
+    .property-box-meta-item-garages {
+        display: none;
+    }
+
+    .owl-item {
+        padding: 0px 2px 8px;
+    }
+}
+
+.footer {
+    .owl-dots .owl-dot {
+        &:hover, &.active {
+            background-color: $color-secondary;
+        }
+    }
+}

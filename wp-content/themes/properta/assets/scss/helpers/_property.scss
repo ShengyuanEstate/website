@@ -1,0 +1,353 @@
+.property-gallery {
+    position: relative;
+
+    img {
+        height: auto;
+        width: 100%;
+    }
+}
+
+.property-gallery-preview {
+    position: relative;
+}
+
+.property-gallery-index {
+    left: 0px;
+    list-style: none;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+
+    li {
+        display: inline-block;
+        margin: 0px 5px;
+
+        &.active {
+            a {
+                background-color: #fff;
+            }
+        }
+    }
+}
+
+.property-detail-title {
+    color: $color-primary;
+    display: inline-block;
+    font-weight: 400;
+    margin: 0px 0px 30px;
+}
+
+.property-detail-location {
+    margin-left: 8px;
+
+    .separator {
+        margin: 0px 4px;
+    }
+}
+
+.property-overview-title {
+    color: $color-primary;
+    margin-top: 0px;
+}
+
+.property-overview {
+    table tr {
+        td {
+            font-weight: 700;
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+
+        td:last-of-type {
+            text-align: right;
+            font-weight: 400;
+        }
+
+        &:first-of-type td {
+            border-top: none;
+        }
+    }
+}
+
+.section-title {
+    color: $color-primary;
+    font-size: 22px;
+    margin-top: 40px;
+}
+
+.property-description {
+    line-height: 30px;
+}
+
+/*******************************************************************
+ * Property Amenities
+ *******************************************************************/
+.property-detail-amenities {
+    ul {
+        @extend .row;
+        list-style: none;
+        margin-bottom: 0px;
+        padding: 0px;
+    }
+
+    li {
+        @extend .col-sm-3;
+        line-height: 40px;
+        margin: 0px;
+        list-style: none;
+
+        &:before {
+            border-radius: 50%;
+            color: #fff;
+            display: inline-block;
+            font-size: 14px;
+            font-family: fontawesome;
+            height: 21px;
+            line-height: 1.5;
+            margin-right: 7px;
+            text-align: center;
+            text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+            -webkit-font-smoothing: antialiased;
+            width: 21px;
+        }
+
+        &.yes:before {
+            background-color: $color-secondary;
+            content: "\f00c";
+        }
+
+        &.no:before {
+            background-color: $color-gray;
+            content: "\f00d";
+        }
+    }
+}
+
+/*******************************************************************
+ * Property Floor Plans
+ *******************************************************************/
+.property-floor-plans {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.property-floor-plans a {
+    max-width: 100%;
+    height: auto;
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+}
+
+.property-floor-plans a:hover {
+    text-decoration: none;
+}
+
+.property-floor-plans {
+    margin-bottom: 30px;
+}
+
+/*******************************************************************
+ * Property Valuation
+ *******************************************************************/
+
+.property-valuation-block {
+    border-bottom: 1px solid $color-gray-light;
+    border-top: 1px solid $color-gray-light;
+    height: 200px;
+    margin-bottom: 80px;
+    margin-top: 20px;
+    position: relative;
+}
+
+.property-valuation-line {
+    border-top: 1px dotted $color-gray-light;
+    position: absolute;
+    width: 100%;
+}
+
+.property-valuation-line-75 {
+    top: 25%;
+}
+
+.property-valuation-line-50 {
+    top: 50%;
+}
+
+.property-valuation-line-25 {
+    top: 75%;
+}
+
+.property-valuation-item {
+    bottom: 0px;
+    float: left;
+    height: 100%;
+    position: relative;
+    text-align: center;
+
+    .property-valuation-column {
+        background-color: $color-secondary;
+        bottom: 0;
+        border-top-right-radius: 2px;
+        border-top-left-radius: 2px;
+        left: 30%;
+        position: absolute;
+        transition: all linear .15s;
+        width: 40%;
+    }
+
+    .property-valuation-key {
+        color: $color-primary;
+        font-weight: 700;
+        margin-top: 210px;
+    }
+
+    .percentage-valuation {
+        color: #fff;
+        margin-left: -100%;
+        margin-top: -20px;
+        opacity: 0;
+        transition: all linear .15s;
+        width: 300%;
+
+        div {
+            background-color: $color-primary;
+            border-radius: 2px;
+            box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+            display: inline-block;
+            padding: 0px 8px;
+        }
+    }
+
+    &:hover {
+        .property-valuation-column {
+            background-color: darken($color-secondary, 10%);
+            box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .percentage-valuation {
+            margin-top: -30px;
+            opacity: 1;
+        }
+    }
+}
+
+
+/*******************************************************************
+ * Property Facilities
+ *******************************************************************/
+.property-public-facilities {
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.property-public-facility {
+    display: table;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.property-public-facility-info {
+    background-color: lighten($color-gray, 30%);
+    border-radius: 2px;
+    display: table-cell;
+    float: left;
+    margin-right: -1px;
+    padding: 2px 8px;
+    white-space: nowrap;
+}
+
+.property-public-facility-title {
+    display: table-cell;
+    float: right;
+    font-weight: 700;
+    padding: 2px 0px;
+    white-space: nowrap;
+}
+
+.property-public-facility-arrow {
+    display: table-cell;
+    padding-right: 14px;
+    position: relative;
+    vertical-align: middle;
+    width: 100%;
+
+    &:after {
+        border: 4px solid transparent;
+        border-left: 7px solid lighten($color-gray, 20%);
+        border-right: 0px solid transparent;
+        content: "";
+        display: block;
+        position: absolute;
+        right: 10px;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+    }
+
+    hr {
+        border-color: lighten($color-gray, 20%);
+        border-style: dotted;
+        margin: 0px;
+    }
+}
+
+/*******************************************************************
+ * Map
+ *******************************************************************/
+.property-map-position {
+    border-top: 1px solid $gray-lighter;
+    margin-top: 40px;
+    padding-top: 40px;
+}
+
+/*******************************************************************
+ * Similar Properties
+ *******************************************************************/
+.similar-properties {
+    margin-top: 60px;
+
+    h2 {
+        @extend .page-header;
+        font-weight: 400;
+    }
+}
+
+.simple-marker {
+    background-color: #fff;
+    border: 6px solid $color-primary;
+    border-radius: 50%;
+    box-shadow: 0px 0px 15px rgba(0,0,0,.3) inset;
+    height: 55px;
+    margin-top: -7px;
+    position: relative;
+    width: 55px;
+
+    &:before {
+        color: $color-secondary;
+        content: "\f015";
+        display: block;
+        font-family: fontawesome;
+        font-size: 26px;
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        -webkit-transform: translateX(-50%) translateY(-50%);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    &:after {
+        border: 5px solid transparent;
+        border-top: 10px solid $color-primary;
+        border-bottom: 0px solid transparent;
+        bottom: -14px;
+        content: "";
+        display: block;
+        left: 50%;
+        position: absolute;
+        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+    }
+}

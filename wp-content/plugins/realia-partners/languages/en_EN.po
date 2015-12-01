@@ -1,0 +1,101 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Realia Partners\n"
+"POT-Creation-Date: 2015-06-25 16:22+0100\n"
+"PO-Revision-Date: 2015-06-25 16:22+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.9\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: ..\n"
+"X-Poedit-SearchPathExcluded-0: ../libraries\n"
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:34
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:46
+#: ../includes/widgets/class-realia-partners-widget-partners.php:24
+msgid "Partners"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:35
+msgid "Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:36
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:37
+msgid "Add New Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:38
+msgid "Edit Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:39
+msgid "New Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:40
+msgid "All Partners"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:41
+msgid "View Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:42
+msgid "Search Partner"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:43
+msgid "No Partners found"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:44
+msgid "No Partners found in Trash"
+msgstr ""
+
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:70
+#: ../includes/post-types/class-realia-partners-post-type-partner.php:77
+msgid "URL"
+msgstr ""
+
+#: ../includes/widgets/class-realia-partners-widget-partners.php:26
+msgid "Displays partners widget"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:18
+msgid "Title"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:31
+msgid "Description"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:43
+msgid "Count"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:56
+msgid "Items per row"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:73
+msgid "Classes"
+msgstr ""
+
+#: ../templates/widgets/partners-admin.php:82
+msgid "Additional classes e.g. <i>fullwidth background-gray</i>"
+msgstr ""
+
+#: ../templates/widgets/partners.php:42
+msgid "Featured image not found."
+msgstr ""
+
+#: ../templates/widgets/partners.php:60
+msgid "No partners found."
+msgstr ""

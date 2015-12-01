@@ -1,0 +1,78 @@
+.footer {
+    background-color: $color-primary;
+    color: rgba(255,255,255,.7);
+
+    a, .widgettitle {
+        color: #fff;
+    }
+
+    .widgettitle {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(255,255,255,.15);
+    }
+}
+
+.footer-top {
+    border-top: 5px solid #F69679;
+    padding: 50px 0px 0px;
+}
+
+.footer-top-inner {
+    position: relative;
+}
+
+.footer-bottom {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.footer-bottom-inner {
+    @extend .clearfix;
+
+    font-size: 13px;
+    padding: 20px 0px;
+
+    .widget.widget_nav_menu ul {
+        @extend .nav-pills;
+        background-color: transparent;
+
+        li {
+            margin-left: 0px;
+            padding: 0px 15px;
+
+            &:first-of-type {
+                padding-left: 0px;
+            }
+
+            &:last-of-type {
+                padding-right: 0px;
+            }
+
+            a {
+                border-bottom: 1px solid transparent;
+                border-radius: 0px;
+                color: #fff;
+                line-height: 1.3;
+                padding: 0px;
+                transition: all linear .12s;
+
+                &:hover {
+                    border-bottom-color: rgba(255,255,255,0.8);
+                    background-color: transparent;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    .textwidget {
+        padding: 10px 0px;
+    }
+}
+
+.footer-bottom-left {
+    float: left;
+}
+
+.footer-bottom-right {
+    float: right;
+}

@@ -1,0 +1,123 @@
+.property-small {
+    @extend .clearfix;
+
+    .property-small-inner {
+        background-color: #eee;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        padding: 10px;
+        position: relative;
+        z-index: 2;
+    }
+}
+
+.type-small .property-container {
+    margin-bottom: 15px;
+    padding: 0px;
+
+    &:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.property-small-image {
+    @extend .image-small-hover;
+    float: left;
+    margin: 0px 20px 0px 0px;
+    width: 70px;
+
+    img {
+        height: auto;
+        max-width: 100%;
+    }
+}
+
+.property-small-type {
+    color: $gray-light;
+    font-size: 12px;
+    margin: 0px 0px 5px 0px;
+}
+
+.property-small-price {
+    background-color: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.3);
+    color: $color-primary;
+    display: inline-block;
+    font-weight: bold;
+    padding: 3px 6px;
+}
+
+.property-small-title {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    a {
+        color: $color-primary;
+        transition: all linear .15s;
+
+        &:hover {
+            color: $color-secondary;
+            text-decoration: none;
+        }
+    }
+}
+
+.property-small-meta {
+    background-color: #fff;
+    box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+    color: $color-primary;
+    padding: 5px 10px;
+    position: relative;
+    z-index: 1;
+
+    span {
+        margin-right: 14px;
+
+        &:last-of-type {
+            margin-right: 0px;
+        }
+
+        @media (max-width: $screen-md-max) and (min-width: $screen-sm-min) {
+            margin-right: 10px;
+        }
+    }
+
+    i {
+        color: $color-secondary;
+    }
+}
+
+.footer {
+    .property-small-inner {
+        background-color: rgba(255,255,255,.06);
+
+        a {
+            color: #fff;
+
+            &:hover {
+                color: $color-secondary;
+            }
+        }
+
+        .property-small-type {
+            color: rgba(255,255,255,.7);
+        }
+    }
+
+    .property-small-price {
+        background-color: $color-secondary;
+        color: #fff;
+    }
+
+    .property-small-meta {
+        display: none;
+    }
+}

@@ -1,0 +1,146 @@
+.comments-area {
+    margin-bottom: 50px;
+
+    ol {
+        padding-left: 0px;
+        list-style: none;
+    }
+
+    .comments-title, .comment-reply-title {
+        color: $color-black;
+        font-weight: 300;
+        margin-bottom: 20px;
+        margin-top: 50px;
+    }
+
+    .comment-reply-link {
+        @extend .badge;
+        float: right;
+
+        background-color: $color-secondary;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.2);
+        border-radius: 2px;
+        color: #fff;
+        font-size: 12px;
+        padding: 6px 8px;
+        text-shadow: 0px 1px 1px rgba(0,0,0,0.2);
+        transition: all linear .15s;
+
+        &:hover {
+            background-color: $color-primary;
+        }
+    }
+
+    .comment.clearfix {
+        margin-bottom: 20px;
+    }
+
+    .comment-meta {
+        font-size: 16px;
+        margin-left: 115px;
+        margin-top: 20px;
+
+        .comment-author {
+            color: $color-primary;
+            font-weight: 700;
+        }
+
+        .comment-date {
+            color: $color-gray-light;
+            font-weight: 400;
+            font-size: 13px;
+        }
+    }
+
+    .comment-author img {
+        border-radius: 50%;
+    }
+
+    .comment-body {
+        padding: 15px 0px 0px 115px;
+        color: lighten($color-black, 20%);
+    }
+
+    .comment > .comment-author {
+        position: absolute;
+        margin-top: 20px;
+    }
+
+    .children {
+        margin-left: 50px
+    }
+
+    .required {
+        color: $color-primary;
+    }
+
+    .form-allowed-tags {
+        display: inline-block;
+        float: right;
+        font-size: 11px;
+        padding-left: 30px;
+        text-align: justify;
+        width: 75%;
+        line-height: 1.8;
+
+        code {
+            background-color: transparent;
+            color: darken($color-gray, 10%);
+        }
+    }
+
+    .form-submit {
+        display: block;
+    }
+
+    .comment-form-comment {
+        margin-bottom: 30px;
+    }
+
+    .comment-notes {
+        margin-bottom: 20px;
+    }
+
+    .comment + .comment-respond {
+        margin-bottom: 30px;
+    }
+
+    #cancel-comment-reply-link {
+        float: right;
+        text-transform: uppercase;
+        font-size: 12px;
+
+        &:hover {
+            color: $color-primary;
+
+            &:before {
+                text-decoration: none;
+            }
+        }
+
+        &:before {
+            content: "\e82a";
+            font-family: PictoPro;
+            margin-right: 8px;
+            font-size: 10px;
+        }
+    }
+
+    .comment-awaiting-moderation {
+        background-color: $color-primary;
+        border-radius: 2px;
+        color: #fff;
+        display: inline-block;
+        font-style: normal;
+        margin-bottom: 20px;
+        margin-left: 200px;
+        padding: 0px 8px;
+
+        &:before {
+            content: "\e8af";
+            font-family: PictoPro;
+            margin-right: 8px;
+            font-size: 11px;
+        }
+    }
+}

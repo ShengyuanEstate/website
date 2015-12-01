@@ -1,0 +1,105 @@
+.property-gallery {
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .owl-carousel .owl-stage {
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    .owl-next, .owl-prev {
+        background-color: lighten($color-gray, 40%);
+        border-radius: 2px;
+        box-shadow: 0px 1px 2px rgba(0,0,0,0.4);
+        line-height: 1;
+        padding: 0px;
+        position: absolute;
+        transition: all linear .15s;
+        transform: translateY(-50%);
+        -webkit-transform: translateY(-50%);
+        top: 50%;
+
+        i {
+            background-color: transparent;
+            color: rgba($color-black, .5);
+            font-size: 18px;
+            height: auto;
+            margin: 0px;
+            padding: 3px 0px;
+            transition: all linear .15s;
+        }
+
+        &:hover {
+            background-color: $color-secondary;
+
+            i {
+                color: #fff;
+            }
+        }
+    }
+
+    .owl-next {
+        right: -5px;
+        padding: 5px 9px 4px 10px;
+    }
+
+    .owl-prev {
+        left: -5px;
+        padding: 5px 10px 4px 9px;
+    }
+
+    .property-gallery-index {
+        margin: 0px;
+        margin-top: 10px;
+        padding: 0px;
+        position: relative;
+
+        .owl-stage-outer {
+            cursor: pointer;
+        }
+    }
+
+    .property-gallery-preview {
+        position: relative;
+    }
+
+    .property-gallery-list-item {
+        display: none;
+        list-style: none;
+        transition: all linear .15s;
+        width: 100%;
+        margin: 0px;
+
+        a {
+            border-bottom: none;
+            max-height: 120px;
+            display: block;
+        }
+    }
+
+    .owl-item .property-gallery-list-item {
+        img {
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+            opacity: .6;
+            transition: all linear .15s;
+        }
+
+        &.active, &:hover {
+            img {
+                -webkit-filter: grayscale(0%);
+                opacity: 1;
+                filter: grayscale(0%);
+            }
+        }
+    }
+
+    .owl-item {
+        .property-gallery-list-item {
+            display: inline-block;
+        }
+    }
+}
