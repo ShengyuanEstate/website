@@ -2,25 +2,26 @@
 Contributors: wponlinesupport, anoopranawat 
 Tags: wordpress news plugin, main news page scrolling , wordpress vertical news plugin widget, wordpress horizontal news plugin widget , Free scrolling news wordpress plugin, Free scrolling news widget wordpress plugin, WordPress set post or page as news, WordPress dynamic news, news, latest news, custom post type, cpt, widget, vertical news scrolling widget, news widget
 Requires at least: 3.1
-Tested up to: 4.3
+Tested up to: 4.3.1
 Author URI: http://wponlinesupport.com
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-A quick, easy way to add an News custom post type, News widget, vertical and horizontal  scrolling news widget to Wordpress.
+A quick, easy way to add an News custom post type, News widget, vertical scrolling news widget to Wordpress.
 
 == Description ==
 
-Every CMS site needs a news section. SP News  allows you add, manage and display news, date archives, widget, vertical and horizontal news scrolling widget on your website.
+Every CMS site needs a news section. SP News allows you add, manage and display news, date archives, widget, vertical and horizontal news scrolling widget on your website.
 
-View [DEMO](http://demo.wponlinesupport.com/sp-news/) for additional information.
+View [DEMO](http://wponlinesupport.com/sp_plugin/sp-news-and-scrolling-widgets/) for additional information.
+
+View [PRO DEMO and Features](http://wponlinesupport.com/sp_plugin/sp-news-and-scrolling-widgets/) for additional information.
 
 View [screenshots](http://wordpress.org/plugins/sp-news-and-widget/screenshots/) for additional information.
 
 = Installation help and support =
 * Please check [Installation and Document ](http://wponlinesupport.com/sp_plugin/sp-news-and-scrolling-widgets/)  on our website. 
-* Get [Free installation and setup](http://wponlinesupport.com/plugin-installation-support/)  on your website.
 
 = Important Note For How to Install =
 * Please make sure that Permalink link should not be "/news" Otherwise all your news will go to archive page. You can give it other name like "/ournews, /latestnews etc"  
@@ -40,14 +41,12 @@ Arts news
 
 * **Complete shortcode example:**
 <code>[sp_news limit="10" category="category_id" grid="2"
- show_content="true" show_category_name="true"
+ show_content="true" show_full_content="true" show_category_name="true"
 show_date="false" content_words_limit="30" ]</code>
 
 * Comments for the news
 
 * Added Widget Options like Show News date, Show News Categories, Select News Categories.
-
-* Users that are using version 2.1 please paste the shortcode in their News page <code> [sp_news] </code> and If your Permalink link is www.yourdoamin.com/news then plaese change from "news" to other name like "ournews", "latestnews etc" otherwise all your news will go to archive page.
 
 = Following are News Parameters: =
 
@@ -56,6 +55,7 @@ show_date="false" content_words_limit="30" ]</code>
 * **grid :** [sp_news grid="2"] (Display News in Grid formats).
 * **show_date :** [sp_news show_date="false"] (Display News date OR not. By default value is "True". Options are "ture OR false")
 * **show_content :** [sp_news show_content="true" ] (Display News Short content OR not. By default value is "True". Options are "ture OR false").
+* **show_full_content :** [sp_news show_full_content="true"] (Display Full news content on main page if you do not want word limit. By default value is "false")
 * **show_category_name :** [sp_news show_category_name="true" ] (Display News category name OR not. By default value is "True". Options are "ture OR false").
 * **content_words_limit :** [sp_news content_words_limit="30" ] (Control News short content Words limt. By default limit is 20 words).
 
@@ -67,7 +67,6 @@ The plugin adds a News tab to your admin menu, which allows you to enter news it
 If you are getting any kind of problum with news page means your are not able to see all news items then please remodify your permalinks Structure for example 
 first select "Default" and save then again select "Custom Structure "  and save. 
 
-Finally, the plugin adds a Recent News Items widget and vertical news scrolling widget , which can be placed on any sidebar available in your theme. You can set the title of this list and the number of news items to show.
 
 = Added New Features : =
 * Added Widget Options like Show News date, Show News Categories, Select News Categories.
@@ -78,6 +77,18 @@ Finally, the plugin adds a Recent News Items widget and vertical news scrolling 
 * Added new shortcode parameters ie show_content, show_category_name and content_words_limit
 * Added new shortcode parameters show_date
 
+= PRO Features : =
+* Added 2 shortcodes
+<code>[sp_news] and [sp_news_slider]</code>
+* Recent News Slider
+* Recent News carousel slider
+* Recent News in Grid view
+* 5 Latest News widgets
+* News display with categories
+* Create a News Page OR News website
+* Added 30 layouts and designs
+
+View [PRO DEMO and Features](http://wponlinesupport.com/sp_plugin/sp-news-and-scrolling-widgets/) for additional information.
 
 = Features include: =
 * Just create a news page with any name and add the shortcode  <code> [sp_news] </code>
@@ -133,6 +144,11 @@ Yse  <code> [sp_news] </code>.
 
 == Changelog ==
 
+= 3.2.2 =
+
+* Added Pro version
+* Fixed some bugs
+
 = 3.2.1 =
 
 * Added new shortcode parameters show_date.
@@ -183,6 +199,11 @@ Yse  <code> [sp_news] </code>.
 
 
 == Upgrade Notice ==
+
+= 3.2.2 =
+
+* Added Pro version
+* Fixed some bugs
 
 = 3.2.1 =
 

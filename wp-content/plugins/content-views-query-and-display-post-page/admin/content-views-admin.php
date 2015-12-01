@@ -138,9 +138,9 @@ class PT_Content_Views_Admin {
 	 */
 	public function redirect_add_new() {
 		global $pagenow;
-		if ( $pagenow == 'post-new.php' ) {
+		if ( $pagenow === 'post-new.php' ) {
 			$post_type = isset( $_GET[ 'post_type' ] ) ? $_GET[ 'post_type' ] : '';
-			if ( $post_type == PT_CV_POST_TYPE ) {
+			if ( $post_type === PT_CV_POST_TYPE ) {
 				wp_redirect( admin_url( 'admin.php?page=' . $this->plugin_slug . '-add' ), 301 );
 				exit;
 			}

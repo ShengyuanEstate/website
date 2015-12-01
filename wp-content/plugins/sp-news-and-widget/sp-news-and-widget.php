@@ -3,7 +3,7 @@
 Plugin Name: WP News and three widgets(static, scrolling and with thumbs)
 Plugin URL: http://www.wponlinesupport.com/
 Description: A simple News and three widgets(static, scrolling and with thumbs) plugin
-Version: 3.2.1
+Version: 3.2.2
 Author: WP Online Support
 Author URI: http://www.wponlinesupport.com/
 Contributors: WP Online Support
@@ -12,6 +12,29 @@ Contributors: WP Online Support
  * Register CPT sp_News
  *
  */
+ 
+register_activation_hook( __FILE__, 'install_newsfree_version' );
+function install_newsfree_version(){
+if( is_plugin_active('wp-news-and-widget-pro/sp-news-and-widget.php') ){
+     add_action('update_option_active_plugins', 'deactivate_newsfree_version');
+    }
+}
+function deactivate_newsfree_version(){
+   deactivate_plugins('wp-news-and-widget-pro/sp-news-and-widget.php',true);
+}
+add_action( 'admin_notices', 'freenews_admin_notice');
+function freenews_admin_notice() {
+    $dir = ABSPATH . 'wp-content/plugins/wp-news-and-widget-pro/sp-news-and-widget.php';
+    if( is_plugin_active( 'sp-news-and-widget/sp-news-and-widget.php' ) && file_exists($dir)) {
+        global $pagenow;
+        if( $pagenow == 'plugins.php' ){
+            deactivate_plugins ( 'wp-news-and-widget-pro/sp-news-and-widget.php',true);
+            if ( current_user_can( 'install_plugins' ) ) {
+                echo '<div id="message" class="updated notice is-dismissible"><p><strong>Thank you for activating WP News and three widgets</strong>.<br /> It looks like you had PRO version <strong>(<em>WP News and Five Widgets Pro</em>)</strong> of this plugin activated. To avoid conflicts the extra version has been deactivated and we recommend you delete it. </p></div>';
+            }
+        }
+    }
+} 
 // Initialization function
 add_action('init', 'sp_cpt_news_init');
 function sp_cpt_news_init() {
@@ -46,7 +69,7 @@ function sp_cpt_news_init() {
     'capability_type'     => 'post',
     'has_archive'         => true,
     'hierarchical'        => false,
-    'menu_position'       => 8,
+    'menu_position'       => 5,
 	'menu_icon'   => 'dashicons-feedback',
     'supports'            => array('title','editor','thumbnail','excerpt','comments'),
     'taxonomies'          => array('post_tag')
@@ -94,6 +117,7 @@ add_action( 'wp_enqueue_scripts','style_css_script' );
     }
 
 require_once( 'widget_function.php' );	
+require_once( 'news_menu_function.php' );	
 
 function get_news( $atts, $content = null ){
             // setup the query
@@ -104,6 +128,7 @@ function get_news( $atts, $content = null ){
         "show_date" => '',
         "show_category_name" => '',
         "show_content" => '',
+		"show_full_content" => '',
         "content_words_limit" => '',
 	), $atts));
 	// Define limit
@@ -137,13 +162,24 @@ function get_news( $atts, $content = null ){
     } else {
         $showContent = 'true';
     }
+	 if( $show_full_content ) { 
+        $showFullContent = $show_full_content; 
+    } else {
+        $showFullContent = 'false';
+    }
 	 if( $content_words_limit ) { 
         $words_limit = $content_words_limit; 
     } else {
         $words_limit = '20';
     }
 	ob_start();
-	$paged = ( get_query_var('paged') ) ? get_query_var('paged') : 1;
+	
+	global $paged;
+		if(is_home() || is_front_page()) {
+			  $paged = get_query_var('page');
+		} else {
+			 $paged = get_query_var('paged');
+		}
 	
 	$post_type 		= 'news';
 	$orderby 		= 'post_date';
@@ -189,7 +225,7 @@ function get_news( $atts, $content = null ){
 						 <a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('url'); ?></a>
 						<?php } else if($gridcol > '2') { ?>
 							<div class="grid-news-thumb">	
-						 <a href="<?php the_permalink(); ?>">	<?php the_post_thumbnail('medium'); ?></a>
+						 <a href="<?php the_permalink(); ?>">	<?php the_post_thumbnail('large'); ?></a>
 							</div>
 					<?php	} else { ?>
 					<div class="grid-news-thumb">	
@@ -222,12 +258,16 @@ function get_news( $atts, $content = null ){
                             <?php echo $cate_name; ?>
 							</div>
                        <?php }?>
-                     <?php if($showContent == 'true'){?>   
-					<div class="news-content-excerpt">
-					<?php $excerpt = get_the_content();?>
-                    <p class="news-short-content"><?php echo string_limit_newswords($excerpt,$words_limit); ?>...</p>
-                   
-                        <a href="<?php the_permalink(); ?>" class="more-link">Read More</a>	
+                      <?php if($showContent == 'true'){?>
+					<div class="news-content-excerpt">							
+						<?php  if($showFullContent == "false" ) {
+							$excerpt = get_the_content();?>
+						<p class="news-short-content"><?php echo string_limit_newswords($excerpt,$words_limit); ?>...</p>            
+
+						  <a href="<?php the_permalink(); ?>" class="more-link">Read More</a>	
+						<?php } else { 
+							the_content();
+						 } ?>
 					</div><!-- .entry-content -->
                     <?php }?>
 					</div>

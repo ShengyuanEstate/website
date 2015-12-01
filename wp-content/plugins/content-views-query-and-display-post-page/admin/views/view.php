@@ -173,14 +173,14 @@ PT_CV_Functions::view_submit();
 									// Includes
 									array(
 										'label'	 => array(
-											'text' => __( 'In list', PT_CV_TEXTDOMAIN ),
+											'text' => __( 'Include only', PT_CV_TEXTDOMAIN ),
 										),
 										'params' => array(
 											array(
 												'type'	 => 'text',
 												'name'	 => 'post__in',
 												'std'	 => '',
-												'desc'	 => apply_filters( PT_CV_PREFIX_ . 'setting_post_in', __( 'List of post ids to include (comma-separated values, e.g. 1,2,3)', PT_CV_TEXTDOMAIN ) ),
+												'desc'	 => apply_filters( PT_CV_PREFIX_ . 'setting_post_in', __( 'List of post IDs to display (comma-separated values, e.g. 1,2,3)', PT_CV_TEXTDOMAIN ) ),
 											),
 										),
 									),
@@ -188,14 +188,14 @@ PT_CV_Functions::view_submit();
 									// Excludes
 									array(
 										'label'	 => array(
-											'text' => __( 'Excludes', PT_CV_TEXTDOMAIN ),
+											'text' => __( 'Exclude', PT_CV_TEXTDOMAIN ),
 										),
 										'params' => array(
 											array(
 												'type'	 => 'text',
 												'name'	 => 'post__not_in',
 												'std'	 => '',
-												'desc'	 => apply_filters( PT_CV_PREFIX_ . 'setting_post_not_in', __( 'List of post ids to exclude (comma-separated values, e.g. 1,2,3)', PT_CV_TEXTDOMAIN ) ),
+												'desc'	 => apply_filters( PT_CV_PREFIX_ . 'setting_post_not_in', __( 'List of post IDs to exclude (comma-separated values, e.g. 1,2,3)', PT_CV_TEXTDOMAIN ) ),
 											),
 										),
 									),

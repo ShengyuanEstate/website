@@ -132,7 +132,7 @@ if ( !class_exists( 'PT_CV_Plugin' ) ) {
 
 			foreach ( $input as $key => $value ) {
 				$type				 = apply_filters( PT_CV_PREFIX_ . 'settings_page_field_sanitize', 'input', $key );
-				$new_input[ $key ]	 = ($type == 'input') ? sanitize_text_field( $value ) : $value;
+				$new_input[ $key ]	 = ($type === 'input') ? sanitize_text_field( $value ) : $value;
 			}
 
 			return $new_input;

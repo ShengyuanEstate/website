@@ -652,7 +652,7 @@ msgstr ""
 
 #: code/includes/values.php:385
 msgid ""
-"1 column &#8212; All fields inside an output item are shown in one column"
+"1 column &#8212; Show all fields in one column"
 msgstr ""
 
 #: code/includes/values.php:386

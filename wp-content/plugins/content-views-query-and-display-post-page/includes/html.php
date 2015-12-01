@@ -156,8 +156,7 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 		 * @param object $post      The post object
 		 * @param string $style     The style of view type (main, style2...)
 		 */
-		static function view_type_output( $view_type, $post, $style = 'main' ) {
-
+		static function view_type_output( $view_type, $post, $post_idx = 0, $style = 'main' ) {
 			$dargs	 = PT_CV_Functions::get_global_variable( 'dargs' );
 			$content = NULL;
 
@@ -183,11 +182,12 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 
 				// Generate HTML output of all content fields
 				$fields_html = array();
-				foreach ( $dargs[ 'fields' ] as $field_name ) {
+				$other_dargs = apply_filters( PT_CV_PREFIX_ . 'dargs_others', $dargs, $post_idx );
+				foreach ( $other_dargs[ 'fields' ] as $field_name ) {
 					// Get settings of fields
-					$fargs = isset( $dargs[ 'field-settings' ] ) ? $dargs[ 'field-settings' ] : array();
+					$fargs = isset( $other_dargs[ 'field-settings' ] ) ? $other_dargs[ 'field-settings' ] : array();
 
-					$fargs[ 'layout-format' ] = $dargs[ 'layout-format' ];
+					$fargs[ 'layout-format' ] = $other_dargs[ 'layout-format' ];
 
 					// Get HTML output of field
 					$item_html = self::field_item_html( $field_name, $post, $fargs );
@@ -222,23 +222,18 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 		 * @return string Full HTML output of a item
 		 */
 		static function content_item_wrap( $html_item, $class = '', $post_id = 0 ) {
-
-			$dargs = PT_CV_Functions::get_global_variable( 'dargs' );
-
 			if ( empty( $html_item ) ) {
 				return '';
 			}
 
-			if ( is_array( $dargs ) ) {
-				// If only show Title
-				if ( isset( $dargs[ 'fields' ] ) && count( (array) $dargs[ 'fields' ] ) == 1 && $dargs[ 'fields' ][ 0 ] == 'title' ) {
-					$class .= ' ' . PT_CV_PREFIX . 'only-title';
-				}
+			$dargs = (array) PT_CV_Functions::get_global_variable( 'dargs' );
+
+			// If only show Title
+			if ( isset( $dargs[ 'fields' ] ) && count( (array) $dargs[ 'fields' ] ) == 1 && $dargs[ 'fields' ][ 0 ] === 'title' ) {
+				$class .= ' ' . PT_CV_PREFIX . 'only-title';
 			}
 
-			// Get wrapper class of a item
-			$item_class = apply_filters( PT_CV_PREFIX_ . 'content_item_class', array( $class, PT_CV_PREFIX . 'content-item', PT_CV_PREFIX . $dargs[ 'layout-format' ] ) );
-
+			$item_class	 = apply_filters( PT_CV_PREFIX_ . 'content_item_class', array( $class, PT_CV_PREFIX . 'content-item', PT_CV_PREFIX . $dargs[ 'layout-format' ] ) );
 			$item_filter = apply_filters( PT_CV_PREFIX_ . 'content_item_filter_value', '', $post_id );
 
 			// Add custom HTML for each item
@@ -262,7 +257,7 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 		 * @return string Full HTML output for Content View
 		 */
 		static function content_items_wrap( $content_items, $current_page, $post_per_page, $id ) {
-			global $pt_cv_glb, $pt_cv_id;
+
 			$dargs = PT_CV_Functions::get_global_variable( 'dargs' );
 
 			if ( empty( $content_items ) ) {
@@ -270,7 +265,7 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 			}
 
 			// Assign as global variable
-			$pt_cv_glb[ $pt_cv_id ][ 'content_items' ] = $content_items;
+			PT_CV_Functions::set_global_variable( 'content_items', $content_items );
 
 			$nonpaging_or_firstpage = PT_CV_Functions::nonpaging_or_firstpage( $dargs, $current_page );
 
@@ -569,58 +564,54 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 		 * HTML output of thumbnail field
 		 *
 		 * @param object $post  The post object
-		 * @param array  $fargs The settings of this field
+		 * @param array  $_fargs The settings of this field
 		 *
 		 * @return string
 		 */
-		static function _field_thumbnail( $post, $fargs ) {
-
-			$dargs = PT_CV_Functions::get_global_variable( 'dargs' );
-
-			// Get layout format
-			$layout_format = $fargs[ 'layout-format' ];
+		static function _field_thumbnail( $post, $_fargs ) {
+			$layout_format = $_fargs[ 'layout-format' ];
 
 			// Get thumbnail settings
-			$fargs = $fargs[ 'thumbnail' ];
+			$fargs = $_fargs[ 'thumbnail' ];
 
-			$html			 = '';
-			$wrapper_class	 = '';
-
-			// Get post ID
-			$post_id = $post->ID;
-
-			// Custom args for get_the_post_thumbnail function
+			// Thumbnail class
+			$thumbnail_position	 = 'default';
 			$thumbnail_class	 = array();
 			$thumbnail_class[]	 = PT_CV_PREFIX . 'thumbnail';
 			$thumbnail_class[]	 = isset( $fargs[ 'style' ] ) ? $fargs[ 'style' ] : '';
-			if ( $layout_format == '2-col' ) {
-				$wrapper_class		 = isset( $fargs[ 'position' ] ) ? 'pull-' . $fargs[ 'position' ] : 'pull-left';
-				$thumbnail_class[]	 = $wrapper_class;
-				$wrapper_class		 = str_replace( 'pull', '', $wrapper_class );
+			if ( $layout_format === '2-col' ) {
+				$thumbnail_position	 = isset( $fargs[ 'position' ] ) ? $fargs[ 'position' ] : 'left';
+				$thumbnail_class[]	 = 'pull-' . $thumbnail_position;
 			}
 			$gargs = array(
 				'class' => apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_class', implode( ' ', array_filter( $thumbnail_class ) ) ),
 			);
 
 			// Get thumbnail dimensions
-			$dimensions	 = PT_CV_Functions::field_thumbnail_dimensions( $fargs );
-			$dimensions	 = (array) apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_dimension_output', $dimensions, $fargs );
+			$dimensions = (array) apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_dimension_output', PT_CV_Functions::field_thumbnail_dimensions( $fargs ), $fargs );
 
 			// Check if has thumbnail ( has_post_thumbnail doesn't works )
-			$thumbnail_id	 = get_post_thumbnail_id( $post_id );
+			$thumbnail_id = get_post_thumbnail_id( $post->ID );
+
 			// Check if user doesn't want to load thumbnail: field_thumbnail_load = 0
-			$load_thumbnail	 = !empty( $thumbnail_id ) && apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_load', 1 );
+			$load_thumbnail = !empty( $thumbnail_id ) && apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_load', 1 );
+
+			$html = '';
 			if ( $load_thumbnail ) {
 				$thumbnail_size	 = count( $dimensions ) > 1 ? $dimensions : $dimensions[ 0 ];
 				$html			 = wp_get_attachment_image( (int) $thumbnail_id, $thumbnail_size, false, $gargs );
 				$html			 = apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_image', $html, $post, $dimensions, $fargs );
-			} else {
+			}
+
+			// If no thumbnail
+			if ( empty( $html ) ) {
 				$html = apply_filters( PT_CV_PREFIX_ . 'field_thumbnail_not_found', $html, $post, $dimensions, $gargs );
 			}
 
 			// Add link to thumbnail
+			$dargs	 = PT_CV_Functions::get_global_variable( 'dargs' );
 			$oargs	 = isset( $dargs[ 'other-settings' ] ) ? $dargs[ 'other-settings' ] : array();
-			$html	 = self::_field_href( $oargs, $post, $html, implode( ' ', array( PT_CV_PREFIX . 'href-thumbnail', $wrapper_class ? PT_CV_PREFIX . 'col' . $wrapper_class : '' ) ) );
+			$html	 = self::_field_href( $oargs, $post, $html, implode( ' ', array( PT_CV_PREFIX . 'href-thumbnail', PT_CV_PREFIX . 'thumb-' . $thumbnail_position ) ) );
 
 			return $html;
 		}
@@ -650,8 +641,8 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 						// Get date wrapper class
 						$date_class	 = apply_filters( PT_CV_PREFIX_ . 'field_meta_class', 'entry-date', 'date' );
 						$prefix_text = apply_filters( PT_CV_PREFIX_ . 'field_meta_prefix_text', '', 'date' );
-						$date_format = apply_filters( PT_CV_PREFIX_ . 'field_meta_date_format', '' ); // set empty to get default option of WP
-						$date		 = apply_filters( PT_CV_PREFIX_ . 'field_meta_date_final', get_the_date( $date_format, $post ), get_the_time( 'U' ) );
+						$date_format = apply_filters( PT_CV_PREFIX_ . 'field_meta_date_format', get_option( 'date_format' ) );
+						$date		 = apply_filters( PT_CV_PREFIX_ . 'field_meta_date_final', mysql2date( $date_format, $post->post_date ), get_the_time( 'U' ) );
 
 						$html[ 'date' ] = sprintf( '<span class="%s">%s <time datetime="%s">%s</time></span>', esc_html( $date_class ), $prefix_text, esc_attr( get_the_date( 'c' ) ), esc_html( $date ) );
 						break;
@@ -676,7 +667,7 @@ if ( !class_exists( 'PT_CV_Html' ) ) {
 							$prefix_text	 = apply_filters( PT_CV_PREFIX_ . 'field_meta_prefix_text', '', 'comment' );
 
 							ob_start();
-							comments_popup_link( __( 'Leave a comment', PT_CV_TEXTDOMAIN ), __( '1 Comment', PT_CV_TEXTDOMAIN ), __( '% Comments', PT_CV_TEXTDOMAIN ) );
+							comments_popup_link( __( '0 Comment', PT_CV_TEXTDOMAIN ), __( '1 Comment', PT_CV_TEXTDOMAIN ), __( '% Comments', PT_CV_TEXTDOMAIN ) );
 							$comment_content	 = ob_get_clean();
 							$html[ 'comment' ]	 = sprintf( '<span class="%s">%s %s</span>', esc_attr( $comment_class ), $prefix_text, $comment_content );
 						endif;

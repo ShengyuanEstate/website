@@ -24,6 +24,7 @@ if ( !class_exists( 'PT_CV_Hooks' ) ) {
 			add_filter( PT_CV_PREFIX_ . 'validate_settings', array( __CLASS__, 'filter_validate_settings' ), 10, 2 );
 
 			// Do action
+			add_action( PT_CV_PREFIX_ . 'before_query', array( __CLASS__, 'action_before_query' ) );
 		}
 
 		/**
@@ -101,6 +102,17 @@ if ( !class_exists( 'PT_CV_Hooks' ) ) {
 			}
 
 			return array_filter( $errors );
+		}
+
+		public static function action_before_query() {
+			/** Fix problem with Paid Membership Pro plugin
+			 * It resets (instead of append) "post__not_in" parameter of WP query which makes:
+			 * - exclude function doesn't work
+			 * - output in Preview panel is different from output in front-end
+			 */
+			if ( function_exists( 'pmpro_search_filter' ) ) {
+				remove_filter( 'pre_get_posts', 'pmpro_search_filter' );
+			}
 		}
 
 	}

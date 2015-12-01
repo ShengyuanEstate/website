@@ -265,6 +265,10 @@ if ( !class_exists( 'PT_Options_Framework' ) ) {
 						break;
 					}
 
+					if ( is_string( $value ) && strpos( $value, ',' ) !== false ) {
+						$value = explode( ',', $value );
+					}
+
 					$options = '';
 					foreach ( $param[ 'options' ] as $key => $text ) {
 						$selected		 = ( in_array( $key, (array) $value ) || ( $value == 'all' ) ) ? 'selected' : '';

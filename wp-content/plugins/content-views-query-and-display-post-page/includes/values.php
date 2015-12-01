@@ -382,7 +382,7 @@ if ( !class_exists( 'PT_CV_Values' ) ) {
 		static function layout_format() {
 
 			$result = array(
-				'1-col'	 => __( '1 column &#8212; All fields inside an output item are shown in one column', PT_CV_TEXTDOMAIN ),
+				'1-col'	 => __( '1 column &#8212; Show all fields in one column', PT_CV_TEXTDOMAIN ),
 				'2-col'	 => __( '2 columns &#8212; Show thumbnail on the left/right side of other fields', PT_CV_TEXTDOMAIN ),
 			);
 
